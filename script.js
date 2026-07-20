@@ -82,11 +82,44 @@ const io = new IntersectionObserver((entries) => {
   }
 
   // ---------- Voice output (text-to-speech) ----------
+  // ---------- Voice output (text-to-speech) with voice selection ----------
+  let availableVoices = [];
+
+  function loadVoices() {
+    availableVoices = window.speechSynthesis.getVoices();
+  }
+  loadVoices();
+  if ("onvoiceschanged" in window.speechSynthesis) {
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  }
+
+  function pickFemaleVoice() {
+    // Common female-voice names across Chrome/Edge/Windows/Mac — checked in order of preference
+    const preferredNames = [
+      "Microsoft Zira",
+      "Google UK English Female",
+      "Google US English Female",
+      "Microsoft Aria",
+      "Microsoft Jenny",
+      "Samantha",
+      "Victoria",
+      "Female"
+    ];
+    for (const name of preferredNames) {
+      const match = availableVoices.find(v => v.name.includes(name));
+      if (match) return match;
+    }
+    // Fallback: just take the first English voice available
+    return availableVoices.find(v => v.lang.startsWith("en")) || null;
+  }
+
   function speakText(text) {
     if (!("speechSynthesis" in window)) return;
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 1;
     utterance.pitch = 1;
+    const voice = pickFemaleVoice();
+    if (voice) utterance.voice = voice;
     window.speechSynthesis.speak(utterance);
   }
 
