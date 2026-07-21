@@ -21,6 +21,8 @@
   *{ box-sizing: border-box; margin:0; padding:0; }
   html{ scroll-behavior: smooth; }
 
+  html, body{ max-width: 100%; overflow-x: hidden; }
+
   body{
     background: var(--bg);
     color: var(--text);
@@ -54,9 +56,12 @@
     background: rgba(14,22,32,0.75);
     border-bottom: 1px solid var(--border);
   }
-  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top: 16px; padding-bottom: 16px; }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top: 16px; padding-bottom: 16px; gap: 16px; }
+  .nav-mark{ flex-shrink: 0; }
   .nav-mark{ font-family: var(--mono); font-size: 13px; color: var(--teal); letter-spacing: 0.03em; }
-  .nav-links{ display:flex; gap: 24px; font-family: var(--mono); font-size: 13px; color: var(--text-muted); }
+  .nav-links{ display:flex; gap: 24px; font-family: var(--mono); font-size: 13px; color: var(--text-muted); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; min-width: 0; }
+  .nav-links::-webkit-scrollbar{ display: none; }
+  .nav-links a{ flex-shrink: 0; }
   .nav-links a:hover{ color: var(--text); }
   @media (max-width: 700px){ .nav-links{ gap:14px; } .nav-links span.nl-text{ display:none; } }
 
