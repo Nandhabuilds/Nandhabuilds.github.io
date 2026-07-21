@@ -237,6 +237,27 @@
 </footer>
 
 <button id="chat-toggle" aria-label="Open chat">💬</button>
+<div id="cat-avatar" class="cat-idle">
+  <svg viewBox="0 0 120 120" width="70" height="70">
+    <!-- Ears -->
+    <path d="M30 35 L20 10 L45 28 Z" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
+    <path d="M90 35 L100 10 L75 28 Z" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
+    <!-- Head -->
+    <ellipse cx="60" cy="60" rx="38" ry="34" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
+    <!-- Eyes group (blinking happens here) -->
+    <g id="cat-eyes">
+      <ellipse class="eye" cx="46" cy="56" rx="5" ry="7" fill="#E7EDF3"/>
+      <ellipse class="eye" cx="74" cy="56" rx="5" ry="7" fill="#E7EDF3"/>
+    </g>
+    <!-- Mouth (talk/yawn happens here) -->
+    <path id="cat-mouth" d="M50 74 Q60 78 70 74" stroke="#4FD8C4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Whiskers -->
+    <line x1="20" y1="62" x2="38" y2="60" stroke="#5E7080" stroke-width="1.5"/>
+    <line x1="20" y1="70" x2="38" y2="68" stroke="#5E7080" stroke-width="1.5"/>
+    <line x1="100" y1="62" x2="82" y2="60" stroke="#5E7080" stroke-width="1.5"/>
+    <line x1="100" y1="70" x2="82" y2="68" stroke="#5E7080" stroke-width="1.5"/>
+  </svg>
+</div>
 <div id="chat-window">
   <div id="chat-header"><span>Ask about Nandha</span><button id="chat-close" aria-label="Close chat">✕</button></div>
   <div id="chat-messages"><div class="msg bot">Hi! Ask me anything about Nandha's background, projects, or skills.</div></div>

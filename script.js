@@ -12,9 +12,16 @@ const io = new IntersectionObserver((entries) => {
   const sendBtn = document.getElementById("chat-send");
 
   let conversationHistory = [];
+const catAvatar = document.getElementById("cat-avatar");
 
-  toggleBtn.addEventListener("click", () => { chatWindow.classList.toggle("open"); });
-  closeBtn.addEventListener("click", () => { chatWindow.classList.remove("open"); });
+toggleBtn.addEventListener("click", () => {
+  chatWindow.classList.toggle("open");
+  catAvatar.classList.toggle("visible");
+});
+closeBtn.addEventListener("click", () => {
+  chatWindow.classList.remove("open");
+  catAvatar.classList.remove("visible");
+});
 
   function addMessage(text, sender) {
     const div = document.createElement("div");
@@ -25,6 +32,7 @@ const io = new IntersectionObserver((entries) => {
   }
 
   async function sendMessage() {
+     resetIdleTimer();
     const text = inputEl.value.trim();
     if (!text) return;
     addMessage(text, "user");
@@ -102,27 +110,62 @@ const io = new IntersectionObserver((entries) => {
     return voices.find(v => v.lang.startsWith("en")) || null;
   }
 
-  function speakText(text) {
-    if (!("speechSynthesis" in window)) return;
+  const catMouth = document.getElementById("cat-mouth");
+let mouthInterval = null;
 
-    const trySpeak = () => {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 1;
-      utterance.pitch = 1;
-      const voice = pickFemaleVoice();
-      if (voice) utterance.voice = voice;
-      window.speechSynthesis.speak(utterance);
-    };
+function startTalkingAnimation() {
+  catAvatar.classList.add("cat-talking");
+  let open = false;
+  mouthInterval = setInterval(() => {
+    open = !open;
+    catMouth.setAttribute("d", open ? "M48 72 Q60 86 72 72" : "M50 74 Q60 78 70 74");
+  }, 180);
+}
 
-    // If voices aren't loaded yet (common on first use), wait for them, then speak
-    if (window.speechSynthesis.getVoices().length === 0) {
-      window.speechSynthesis.onvoiceschanged = () => {
-        trySpeak();
-      };
-    } else {
-      trySpeak();
-    }
+function stopTalkingAnimation() {
+  catAvatar.classList.remove("cat-talking");
+  clearInterval(mouthInterval);
+  catMouth.setAttribute("d", "M50 74 Q60 78 70 74");
+}
+
+function speakText(text) {
+  if (!("speechSynthesis" in window)) return;
+
+  const trySpeak = () => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    const voice = pickFemaleVoice();
+    if (voice) utterance.voice = voice;
+
+    utterance.onstart = startTalkingAnimation;
+    utterance.onend = stopTalkingAnimation;
+    utterance.onerror = stopTalkingAnimation;
+
+    window.speechSynthesis.speak(utterance);
+  };
+
+  if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.onvoiceschanged = () => { trySpeak(); };
+  } else {
+    trySpeak();
   }
+}
+// ---------- Idle yawn: plays once if no activity for a while ----------
+let idleTimer = null;
+const IDLE_YAWN_DELAY = 10000; // 10 seconds
+
+function resetIdleTimer() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    if (catAvatar.classList.contains("visible") && !catAvatar.classList.contains("cat-talking")) {
+      catAvatar.classList.add("cat-yawning");
+      setTimeout(() => catAvatar.classList.remove("cat-yawning"), 1300);
+    }
+    resetIdleTimer(); // schedule the next possible yawn
+  }, IDLE_YAWN_DELAY);
+}
+resetIdleTimer();
 
   sendBtn.addEventListener("click", sendMessage);
   inputEl.addEventListener("keydown", (e) => { if (e.key === "Enter") sendMessage(); });
