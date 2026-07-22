@@ -238,24 +238,37 @@
 
 <button id="chat-toggle" aria-label="Open chat">💬</button>
 <div id="cat-avatar" class="cat-idle">
-  <svg viewBox="0 0 120 120" width="70" height="70">
+  <svg viewBox="0 0 140 150" width="80" height="86">
+    <!-- Tail -->
+    <path d="M108 110 Q130 105 128 80 Q127 68 115 70" stroke="#1B2836" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- Body -->
+    <ellipse cx="70" cy="120" rx="34" ry="24" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
     <!-- Ears -->
-    <path d="M30 35 L20 10 L45 28 Z" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
-    <path d="M90 35 L100 10 L75 28 Z" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
+    <path d="M38 45 L28 18 L54 36 Z" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
+    <path d="M102 45 L112 18 L86 36 Z" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
+    <path d="M40 38 L34 24 L48 34 Z" fill="#0E1620"/>
+    <path d="M100 38 L106 24 L92 34 Z" fill="#0E1620"/>
     <!-- Head -->
-    <ellipse cx="60" cy="60" rx="38" ry="34" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
+    <circle cx="70" cy="62" r="40" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
     <!-- Eyes group (blinking happens here) -->
     <g id="cat-eyes">
-      <ellipse class="eye" cx="46" cy="56" rx="5" ry="7" fill="#E7EDF3"/>
-      <ellipse class="eye" cx="74" cy="56" rx="5" ry="7" fill="#E7EDF3"/>
+      <circle cx="54" cy="60" r="7" fill="#E7EDF3"/>
+      <circle cx="54" cy="60" r="3.5" fill="#0E1620"/>
+      <circle cx="86" cy="60" r="7" fill="#E7EDF3"/>
+      <circle cx="86" cy="60" r="3.5" fill="#0E1620"/>
     </g>
+    <!-- Nose -->
+    <path d="M67 72 L73 72 L70 76 Z" fill="#E7A93D"/>
     <!-- Mouth (talk/yawn happens here) -->
-    <path id="cat-mouth" d="M50 74 Q60 78 70 74" stroke="#4FD8C4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path id="cat-mouth" d="M62 78 Q70 84 78 78" stroke="#4FD8C4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     <!-- Whiskers -->
-    <line x1="20" y1="62" x2="38" y2="60" stroke="#5E7080" stroke-width="1.5"/>
-    <line x1="20" y1="70" x2="38" y2="68" stroke="#5E7080" stroke-width="1.5"/>
-    <line x1="100" y1="62" x2="82" y2="60" stroke="#5E7080" stroke-width="1.5"/>
-    <line x1="100" y1="70" x2="82" y2="68" stroke="#5E7080" stroke-width="1.5"/>
+    <line x1="18" y1="64" x2="40" y2="62" stroke="#5E7080" stroke-width="1.5"/>
+    <line x1="18" y1="72" x2="40" y2="70" stroke="#5E7080" stroke-width="1.5"/>
+    <line x1="122" y1="64" x2="100" y2="62" stroke="#5E7080" stroke-width="1.5"/>
+    <line x1="122" y1="72" x2="100" y2="70" stroke="#5E7080" stroke-width="1.5"/>
+    <!-- Front paws -->
+    <ellipse cx="56" cy="140" rx="9" ry="7" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
+    <ellipse cx="84" cy="140" rx="9" ry="7" fill="#1B2836" stroke="#4FD8C4" stroke-width="2"/>
   </svg>
 </div>
 <div id="chat-window">
