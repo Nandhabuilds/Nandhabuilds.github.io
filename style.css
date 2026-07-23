@@ -226,61 +226,34 @@
   #chat-toggle:hover{ background: #63e2d0; }
   #cat-avatar{
   position: fixed;
-  bottom: 522px;
-  right: 24px;
+  bottom: 500px;
+  right: 10px;
   z-index: 101;
   display: none;
   pointer-events: none;
+  width: 160px;
   transition: transform 0.2s ease;
 }
 #cat-avatar.visible{ display: block; }
-#cat-avatar.visible{ display: block; }
+#cat-img{ width: 100%; height: auto; display: block; }
 
-/* Idle: gentle breathing */
-#cat-avatar.cat-idle svg{
-  animation: cat-breathe 3s ease-in-out infinite;
-}
-@keyframes cat-breathe{
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-
-/* Blinking (runs independently, layered on top of idle/talking) */
-#cat-eyes{
-  animation: cat-blink 4.5s infinite;
-  transform-origin: center;
-}
-@keyframes cat-blink{
-  0%, 92%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.1); }
-}
-@keyframes cat-blink{
-  0%, 92%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.1); }
-}
-
-/* Talking: mouth opens/closes quickly */
-#cat-avatar.cat-talking #cat-mouth{
-  animation: cat-talk 0.25s ease-in-out infinite;
-}
-@keyframes cat-talk{
-  0%, 100% { d: path("M50 74 Q60 78 70 74"); }
-}
-#cat-avatar.cat-talking svg{
+/* Talking: extra bounce layered on top of the illustration's built-in loop */
+#cat-avatar.cat-talking #cat-img{
   animation: cat-bounce 0.3s ease-in-out infinite;
 }
 @keyframes cat-bounce{
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.06); }
 }
 
-/* Yawning: mouth opens wide once, briefly */
-#cat-avatar.cat-yawning #cat-mouth{
-  animation: cat-yawn 1.2s ease-in-out;
+/* Yawning: a bigger stretch-like wiggle, played once */
+#cat-avatar.cat-yawning #cat-img{
+  animation: cat-yawn-stretch 1s ease-in-out;
 }
-@keyframes cat-yawn{
-  0%, 100% { d: path("M50 74 Q60 78 70 74"); }
-  50% { d: path("M48 72 Q60 92 72 72"); }
+@keyframes cat-yawn-stretch{
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  40% { transform: scale(1.1) rotate(-2deg); }
+  70% { transform: scale(1.1) rotate(2deg); }
 }
   #chat-window{
     position: fixed; bottom: 92px; right: 24px; width: 320px; max-width: calc(100vw - 48px); height: 420px;

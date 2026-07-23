@@ -153,7 +153,7 @@ function speakText(text) {
 }
 // ---------- Idle yawn: plays once if no activity for a while ----------
 let idleTimer = null;
-const IDLE_YAWN_DELAY = 10000; // 10 seconds
+const IDLE_YAWN_DELAY = 45000; // 45 seconds
 
 function resetIdleTimer() {
   clearTimeout(idleTimer);
