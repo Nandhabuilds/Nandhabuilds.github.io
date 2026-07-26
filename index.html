@@ -85,13 +85,16 @@
               I'm an <strong>Azure Infrastructure Engineer</strong> at TCS, working end-to-end on <strong>Azure Local (Azure Stack HCI)</strong> deployments for a UK-based retail client — from bare metal to a fully managed hybrid cluster.
             </p>
             <p>
-              On the hardware side, that means remote server provisioning via <strong>HPE iLO</strong> (mounting OS images through F9 virtual media, firmware updates, IP configuration). On the Azure side, it covers subscription setup, DNS and Organizational Unit configuration, Group Policy inheritance blocking, and privileged role assignment through <strong>Microsoft Entra ID</strong>.
+              On the hardware side, that means remote server provisioning via <strong>HPE iLO</strong> (installing  OS images , firmware updates, IP configuration). On the Azure side, it covers subscription setup, DNS and Organizational Unit configuration, Group Policy inheritance blocking, and privileged role assignment through <strong>Microsoft Entra ID</strong>.
             </p>
             <p>
               From there, I provision resource groups against the right resource providers, complete <strong>Azure Arc onboarding</strong>, and deploy the Azure Local cluster itself — including Key Vault, storage accounts, machine and cluster nodes, and the Arc Resource Bridge. Post-deployment, I handle cluster security (lockdown), alert rule and alert-processing-rule configuration, and ongoing solution and OEM Solution Builder Extension (SBE) updates, alongside continuous health and alert monitoring.
             </p>
             <p>
               I also lead workload migrations using <strong>Carbonite</strong> — provisioning target VMs, replicating live workloads, and executing cutovers — and manage day-to-day VM operations across <strong>Windows Admin Center, Hyper-V Manager, PowerShell/CLI, and Windows Server</strong> directly.
+            </p>
+            <p>
+              Much of this lifecycle has since evolved into an automated pipeline covering the overall build process across its multiple stages, triggered through <strong>GitHub Actions</strong> via a <strong>self-hosted runner</strong>. I work within this pipeline day-to-day — committing configuration changes, monitoring execution, and troubleshooting issues to keep deployments running smoothly.
             </p>
           </div>
           <div class="facts-card">
