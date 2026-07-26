@@ -192,6 +192,54 @@
   .cert-badge.progress .dot{ background: var(--amber); box-shadow:0 0 6px var(--amber); }
   .cert-badge .cname{ color: var(--text); font-weight:500; }
   .cert-badge .ctag{ font-family: var(--mono); font-size:11px; color: var(--text-dim); }
+  .cert-badge{ cursor: pointer; transition: border-color .15s ease, transform .15s ease; }
+.cert-badge:hover{ border-color: var(--teal); transform: translateY(-2px); }
+.cert-badge.no-image{ cursor: default; }
+.cert-badge.no-image:hover{ border-color: var(--border); transform: none; }
+
+/* Certificate modal */
+#cert-modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 24px;
+}
+#cert-modal.open{ display: flex; }
+#cert-modal-inner{
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+#cert-modal-img{
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 8px;
+  border: 2px solid var(--teal);
+  display: block;
+}
+#cert-modal-close{
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: var(--teal);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #06201B;
+}
+.sec-hint{
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-dim);
+  margin: -20px 0 24px;
+}
 
   /* ---------- INTERESTS ---------- */
   .interest-row{ display:flex; flex-wrap:wrap; gap: 10px; }

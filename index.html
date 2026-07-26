@@ -302,38 +302,18 @@
           <span class="sec-num">04</span>
           <h2 class="sec-title">Certifications</h2>
         </div>
-        <div class="cert-row reveal">
-          <div class="cert-badge">
-            <span class="dot"></span>
-            <div>
-              <div class="cname">AI-900</div>
-              <div class="ctag">Microsoft Azure AI Fundamentals</div>
-            </div>
-          </div>
-          <div class="cert-badge">
-            <span class="dot"></span>
-            <div>
-              <div class="cname">TCS Xceed — Linux</div>
-              <div class="ctag">TCS Internal Certification</div>
-            </div>
-          </div>
-          <div class="cert-badge progress">
-            <span class="dot"></span>
-            <div>
-              <div class="cname">AZ-900</div>
-              <div class="ctag">In Progress</div>
-            </div>
-          </div>
-          <div class="cert-badge progress">
-            <span class="dot"></span>
-            <div>
-              <div class="cname">AZ-104</div>
-              <div class="ctag">Planned Next</div>
-            </div>
-          </div>
-        </div>
+        <p class="sec-hint reveal">Click any certificate to view it in full.</p> 
+        <div class="cert-row reveal" id="cert-row"></div>
       </div>
     </section>
+
+    <!-- Certificate modal (sits anywhere in the page, hidden by default) -->
+    <div id="cert-modal">
+      <div id="cert-modal-inner">
+        <button id="cert-modal-close" aria-label="Close certificate view">✕</button>
+        <img id="cert-modal-img" src="" alt="Certificate">
+      </div>
+    </div>
 
     <section id="interests">
       <div class="wrap">

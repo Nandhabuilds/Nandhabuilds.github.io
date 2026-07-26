@@ -56,6 +56,82 @@ closeBtn.addEventListener("click", () => {
       addMessage("Couldn't reach the assistant right now.", "bot");
     }
   }
+  // ---------- Certifications (data-driven — add new certs here only) ----------
+const certifications = [
+  {
+    name: "AI-900",
+    tag: "Microsoft Azure AI Fundamentals",
+    status: "done",
+    image: "assets/certs/ai-900.png"
+  },
+  {
+    name: "TCS Xceed — Linux",
+    tag: "TCS Internal Certification",
+    status: "done",
+    image: "assets/certs/tcs-xceed-linux.png"
+  },
+  {
+    name: "AZ-104 — Training Course Completed",
+    tag: "Koenig Solutions · Exam pending",
+    status: "done",
+    image: "assets/certs/az-104-training.png"
+  },
+  {
+  name: "GH-200: GitHub Actions",
+  tag: "Koenig Solutions · Course Completion",
+  status: "done",
+  image: "assets/certs/gh-200-github-actions.png"
+  },
+  {
+    name: "AZ-900",
+    tag: "In Progress",
+    status: "progress",
+    image: null
+  }
+];
+
+function renderCertifications() {
+  const certRow = document.getElementById("cert-row");
+  certRow.innerHTML = "";
+
+  certifications.forEach(cert => {
+    const badge = document.createElement("div");
+    badge.className = "cert-badge" + (cert.status === "progress" ? " progress" : "") + (!cert.image ? " no-image" : "");
+
+    badge.innerHTML = `
+      <span class="dot"></span>
+      <div>
+        <div class="cname">${cert.name}</div>
+        <div class="ctag">${cert.tag}</div>
+      </div>
+    `;
+
+    if (cert.image) {
+      badge.addEventListener("click", () => openCertModal(cert.image, cert.name));
+    }
+
+    certRow.appendChild(badge);
+  });
+}
+
+function openCertModal(imageSrc, certName) {
+  const modal = document.getElementById("cert-modal");
+  const modalImg = document.getElementById("cert-modal-img");
+  modalImg.src = imageSrc;
+  modalImg.alt = certName + " certificate";
+  modal.classList.add("open");
+}
+
+function closeCertModal() {
+  document.getElementById("cert-modal").classList.remove("open");
+}
+
+document.getElementById("cert-modal-close").addEventListener("click", closeCertModal);
+document.getElementById("cert-modal").addEventListener("click", (e) => {
+  if (e.target.id === "cert-modal") closeCertModal(); // click outside the image closes it too
+});
+
+renderCertifications();
 
   // ---------- Voice input (speech-to-text) ----------
   const micBtn = document.getElementById("chat-mic");
