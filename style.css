@@ -316,7 +316,7 @@
   .msg.user{ align-self: flex-end; background: var(--teal); color: #06201B; }
   .msg.bot{ align-self: flex-start; background: var(--surface-2); color: var(--text); }
   #chat-input-row{ display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--border); }
-  #chat-input{ flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; color: var(--text); font-size: 13px; font-family: var(--body); }
+  #chat-input{ flex: 1; min-width: 0; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; color: var(--text); font-size: 13px; font-family: var(--body); }
   #chat-send{ background: var(--teal); border: none; border-radius: 8px; padding: 8px 14px; color: #06201B; font-weight: 600; cursor: pointer; font-size: 13px; }
   #chat-mic{ background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; cursor: pointer; font-size: 14px; color: var(--text); }
   #chat-mic.listening{ background: var(--amber); border-color: var(--amber); animation: pulse-mic 1s infinite; }
