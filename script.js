@@ -166,25 +166,7 @@ renderCertifications();
   }
 
   // ---------- Voice output (text-to-speech) ----------
-  // ---------- Voice output (text-to-speech) with voice selection ----------
-  function pickFemaleVoice() {
-    const voices = window.speechSynthesis.getVoices();
-    const preferredNames = [
-      "Microsoft Zira",
-      "Google UK English Female",
-      "Google US English Female",
-      "Microsoft Aria",
-      "Microsoft Jenny",
-      "Samantha",
-      "Victoria",
-      "Female"
-    ];
-    for (const name of preferredNames) {
-      const match = voices.find(v => v.name.includes(name));
-      if (match) return match;
-    }
-    return voices.find(v => v.lang.startsWith("en")) || null;
-  }
+  
 
   const catMouth = document.getElementById("cat-mouth");
 let mouthInterval = null;
@@ -204,27 +186,32 @@ function stopTalkingAnimation() {
   catMouth.setAttribute("d", "M50 74 Q60 78 70 74");
 }
 
-function speakText(text) {
-  if (!("speechSynthesis" in window)) return;
+async function speakText(text) {
+  try {
+    startTalkingAnimation();
 
-  const trySpeak = () => {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 1;
-    utterance.pitch = 1;
-    const voice = pickFemaleVoice();
-    if (voice) utterance.voice = voice;
+    const response = await fetch(WORKER_URL + "/speak", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: text }),
+    });
 
-    utterance.onstart = startTalkingAnimation;
-    utterance.onend = stopTalkingAnimation;
-    utterance.onerror = stopTalkingAnimation;
+    if (!response.ok) {
+      stopTalkingAnimation();
+      return;
+    }
 
-    window.speechSynthesis.speak(utterance);
-  };
+    const audioBlob = await response.blob();
+    const audioUrl = URL.createObjectURL(audioBlob);
+    const audio = new Audio(audioUrl);
 
-  if (window.speechSynthesis.getVoices().length === 0) {
-    window.speechSynthesis.onvoiceschanged = () => { trySpeak(); };
-  } else {
-    trySpeak();
+    audio.onended = stopTalkingAnimation;
+    audio.onerror = stopTalkingAnimation;
+
+    audio.play();
+  } catch (err) {
+    stopTalkingAnimation();
+    console.warn("Speech playback failed:", err);
   }
 }
 // ---------- Idle yawn: plays once if no activity for a while ----------
