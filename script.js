@@ -1,3 +1,30 @@
+// ---------- Profile data ----------
+let profileData = null;
+
+async function loadProfile() {
+  try {
+    const response = await fetch("data/profile.json");
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+
+  profileData = await response.json();
+
+  console.log("Profile loaded:", profileData);
+  renderCertifications();
+  renderSkills();
+  renderProjects();
+  renderAbout();
+  renderInterests();
+  renderContact();
+  
+  } catch (error) {
+    console.error("Failed to load profile.json:", error);
+  }
+}
+
+loadProfile();
 const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.15 });
@@ -94,7 +121,7 @@ function renderCertifications() {
   const certRow = document.getElementById("cert-row");
   certRow.innerHTML = "";
 
-  certifications.forEach(cert => {
+  profileData.certifications.forEach(cert => {
     const badge = document.createElement("div");
     badge.className = "cert-badge" + (cert.status === "progress" ? " progress" : "") + (!cert.image ? " no-image" : "");
 
@@ -113,7 +140,106 @@ function renderCertifications() {
     certRow.appendChild(badge);
   });
 }
+function renderSkills() {
+  const grid = document.querySelector(".skills-grid");
 
+  grid.innerHTML = profileData.skills.map(cat => `
+    <div class="skill-card">
+      <h3>${cat.category}</h3>
+      <ul>
+        ${cat.items.map(item => `<li>${item}</li>`).join("")}
+      </ul>
+    </div>
+  `).join("");
+}
+function renderProjects() {
+  const grid = document.querySelector(".projects-grid");
+
+  grid.innerHTML = profileData.projects.map(proj => `
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-title">
+          ${proj.name}
+          <span class="status-badge status-${proj.status}">
+            ${proj.statusLabel}
+          </span>
+        </div>
+      </div>
+
+      <p class="project-desc">${proj.description}</p>
+
+      <div class="tag-row">
+        ${proj.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+      </div>
+
+      <div class="project-links">
+        ${
+          proj.link
+            ? `<a href="${proj.link}" target="_blank" rel="noopener">View on GitHub →</a>`
+            : `<span class="disabled">Repo is private — details on request</span>`
+        }
+      </div>
+    </div>
+  `).join("");
+}
+function renderAbout() {
+  const aboutText = document.querySelector(".about-text");
+
+  aboutText.innerHTML = profileData.about
+    .map(p => `<p>${p}</p>`)
+    .join("");
+
+  document.querySelector(".focus-line").textContent =
+    "$ currently_studying → " + profileData.currentlyStudying;
+
+  const p = profileData.personal;
+
+  document.querySelector(".facts-card").innerHTML = `
+    <div class="fact"><span class="fact-label">Location</span><span class="fact-value">${p.location}</span></div>
+    <div class="fact"><span class="fact-label">Company</span><span class="fact-value">${p.company}</span></div>
+    <div class="fact"><span class="fact-label">Joined</span><span class="fact-value">${p.joined}</span></div>
+    <div class="fact"><span class="fact-label">Open to</span><span class="fact-value">${p.openTo.slice(0,3).join(" / ")}</span></div>
+  `;
+
+  const s = profileData.stats;
+
+  document.querySelectorAll(".status-tile .value")[0].textContent = s.experienceYears;
+  document.querySelectorAll(".status-tile .value")[1].textContent = s.osDeployments;
+  document.querySelectorAll(".status-tile .value")[2].textContent = s.vmsMigrated;
+  document.querySelectorAll(".status-tile .value")[3].textContent = s.activeProjects;
+}
+function renderInterests() {
+  const row = document.querySelector(".interest-row");
+
+  row.innerHTML = profileData.interests
+    .map(i => `<span class="interest-chip"><span class="dot"></span>${i}</span>`)
+    .join("");
+}
+function renderContact() {
+  const c = profileData.contact;
+
+  document.querySelector(".contact-grid").innerHTML = `
+    <a class="contact-item" href="mailto:${c.email}">
+      <div class="clabel">Email</div>
+      <div class="cvalue">${c.email}</div>
+    </a>
+
+    <a class="contact-item" href="tel:${c.phone.replace(/\s/g,'')}">
+      <div class="clabel">Phone</div>
+      <div class="cvalue">${c.phone}</div>
+    </a>
+
+    <a class="contact-item" href="${c.linkedin.url}" target="_blank" rel="noopener">
+      <div class="clabel">LinkedIn</div>
+      <div class="cvalue">${c.linkedin.label}</div>
+    </a>
+
+    <a class="contact-item" href="${c.github.url}" target="_blank" rel="noopener">
+      <div class="clabel">GitHub</div>
+      <div class="cvalue">${c.github.label}</div>
+    </a>
+  `;
+}
 function openCertModal(imageSrc, certName) {
   const modal = document.getElementById("cert-modal");
   const modalImg = document.getElementById("cert-modal-img");
@@ -131,7 +257,7 @@ document.getElementById("cert-modal").addEventListener("click", (e) => {
   if (e.target.id === "cert-modal") closeCertModal(); // click outside the image closes it too
 });
 
-renderCertifications();
+
 
   // ---------- Voice input (speech-to-text) ----------
   const micBtn = document.getElementById("chat-mic");

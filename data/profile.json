@@ -1,0 +1,103 @@
+{
+  "personal": {
+    "name": "Nandhakumar S",
+    "preferredName": "Nandha",
+    "age": 23,
+    "location": "Chennai, Tamil Nadu, India",
+    "role": "Assistant Systems Engineer",
+    "company": "Tata Consultancy Services (TCS)",
+    "joined": "September 2024",
+    "openTo": ["Cloud Engineer", "DevOps Engineer", "Platform Engineer", "Remote", "Relocation"]
+  },
+  "stats": {
+    "experienceYears": "1.8 yrs",
+    "osDeployments": "1,000+",
+    "vmsMigrated": "900+",
+    "activeProjects": 4
+  },
+  "about": [
+    "I'm an Azure Infrastructure Engineer at TCS, working end-to-end on Azure Local (Azure Stack HCI) deployments for a UK-based retail client — from bare metal to a fully managed hybrid cluster.",
+    "On the hardware side, that means remote server provisioning via HPE iLO (installing OS images, firmware updates, IP configuration). On the Azure side, it covers subscription setup, DNS and Organizational Unit configuration, Group Policy inheritance blocking, and privileged role assignment through Microsoft Entra ID.",
+    "From there, I provision resource groups against the right resource providers, complete Azure Arc onboarding, and deploy the Azure Local cluster itself — including Key Vault, storage accounts, machine and cluster nodes, and the Arc Resource Bridge. Post-deployment, I handle cluster security, alert rule and alert-processing-rule configuration, and ongoing solution and OEM Solution Builder Extension (SBE) updates, alongside continuous health and alert monitoring.",
+    "I also lead workload migrations using Carbonite — provisioning target VMs, replicating live workloads, and executing cutovers — and manage day-to-day VM operations across Windows Admin Center, Hyper-V Manager, PowerShell/CLI, and Windows Server directly.",
+    "Much of this lifecycle has since evolved into an automated pipeline covering the overall build process across its multiple stages, triggered through GitHub Actions via a self-hosted runner. I work within this pipeline day-to-day — committing configuration changes, monitoring execution, and troubleshooting issues to keep deployments running smoothly."
+  ],
+  "currentlyStudying": "AZ-900 → AZ-104 → Cloud Automation",
+  "skills": [
+    { "category": "Cloud", "items": ["Microsoft Azure", "Azure Local (Stack HCI)", "Azure Arc", "Hybrid Cloud"] },
+    { "category": "Operating Systems", "items": ["Windows Server", "Linux"] },
+    { "category": "Virtualization", "items": ["Hyper-V", "VMware"] },
+    { "category": "Hardware & Firmware", "items": ["HPE iLO remote management", "Firmware & IP configuration"] },
+    { "category": "Identity & Governance", "items": ["Microsoft Entra ID (privileged roles)", "DNS & Organizational Unit setup", "Resource group & provider setup"] },
+    { "category": "Azure Local Deployment", "items": ["Arc onboarding & Resource Bridge", "Cluster deployment (nodes, Key Vault, storage)", "Solution & OEM SBE updates"] },
+    { "category": "Monitoring & Alerting", "items": ["Alert rule & processing configuration", "Health & alert monitoring"] },
+    { "category": "Migration", "items": ["Carbonite replication", "Target VM provisioning", "Cutover execution", "VMware-to-Hyper-V migration"] },
+    { "category": "DevOps & Automation", "items": ["Git & GitHub", "GitHub Actions (self-hosted runners)", "PowerShell / CLI", "Windows Admin Center & Hyper-V Manager"] },
+    { "category": "Programming", "items": ["Java", "C++", "SQL", "HTML / CSS"] }
+  ],
+  "projects": [
+    {
+  "name": "GitOps Mini Lab",
+  "status": "private",
+  "statusLabel": "Private Repo",
+  "description": "A self-hosted CI/CD pipeline built from scratch on an Ubuntu VM — covering runner registration, secure remote access, and push-triggered deployments, as hands-on practice toward containerized, monitored infrastructure.",
+  "tags": ["Shell", "GitHub Actions", "Tailscale", "Ubuntu"],
+  "link": null,
+  "phases": [
+    {
+      "number": "01",
+      "text": "Ubuntu VM provisioned, self-hosted GitHub Actions runner registered",
+      "status": "done"
+    },
+    {
+      "number": "02",
+      "text": "Tailscale configured for permanent private remote access",
+      "status": "done"
+    },
+    {
+      "number": "03",
+      "text": "Docker containerization → Prometheus/Grafana monitoring — in progress",
+      "status": "pending"
+    }
+  ]
+    },
+    {
+      "name": "Nandha AI Assistant",
+      "status": "live",
+      "statusLabel": "Live",
+      "description": "The chat assistant running on this portfolio right now. A Cloudflare Worker backend that securely holds an AI API key, adds context about my background, and answers visitor questions in real time.",
+      "tags": ["JavaScript", "Cloudflare Workers", "Groq API", "ElevenLabs"],
+      "link": "https://github.com/Nandhabuilds/Nandha-ai-assistant"
+    },
+    {
+      "name": "Azure Infra Watchdog",
+      "status": "early",
+      "statusLabel": "Early Stage",
+      "description": "A Python-based monitoring script for checking Azure VM status. Currently a skeleton — the core VM check script exists, with plans to expand into a full monitoring tool with alerting.",
+      "tags": ["Python", "Azure"],
+      "link": "https://github.com/Nandhabuilds/azure-infra-watchdog"
+    },
+    {
+      "name": "This Portfolio",
+      "status": "live",
+      "statusLabel": "Live",
+      "description": "A fully responsive personal site built with plain HTML, CSS, and JavaScript — deployed via GitHub Pages with an automated GitHub Actions deploy pipeline. Includes the live AI assistant above.",
+      "tags": ["HTML/CSS/JS", "GitHub Pages", "GitHub Actions"],
+      "link": "https://github.com/Nandhabuilds/Nandhabuilds.github.io"
+    }
+  ],
+  "certifications": [
+    { "name": "AI-900", "tag": "Microsoft Azure AI Fundamentals", "status": "done", "image": "assets/certs/ai-900.png" },
+    { "name": "TCS Xceed — Linux", "tag": "TCS Internal Certification", "status": "done", "image": "assets/certs/tcs-xceed-linux.png" },
+    { "name": "AZ-104 — Training Course Completed", "tag": "Koenig Solutions · Exam pending", "status": "done", "image": "assets/certs/az-104-training.png" },
+    { "name": "GH-200: GitHub Actions", "tag": "Koenig Solutions · Course Completion", "status": "done", "image": "assets/certs/gh-200-github-actions.png" },
+    { "name": "AZ-900", "tag": "In Progress", "status": "progress", "image": null }
+  ],
+  "interests": ["Cloud Computing", "Artificial Intelligence", "Linux", "Gaming", "Anime", "Photography", "Reading"],
+  "contact": {
+    "email": "nandhakumar1903sk@gmail.com",
+    "phone": "+91 86106 04208",
+    "linkedin": { "label": "nandhakumar-s-818aa6269", "url": "https://www.linkedin.com/in/nandhakumar-s-818aa6269" },
+    "github": { "label": "Nandhabuilds", "url": "https://github.com/Nandhabuilds" }
+  }
+}

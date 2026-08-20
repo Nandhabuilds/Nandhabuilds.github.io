@@ -92,21 +92,6 @@
         </div>
         <div class="about-grid reveal">
           <div class="about-text">
-            <p>
-              I'm an <strong>Azure Infrastructure Engineer</strong> at TCS, working end-to-end on <strong>Azure Local (Azure Stack HCI)</strong> deployments for a UK-based retail client — from bare metal to a fully managed hybrid cluster.
-            </p>
-            <p>
-              On the hardware side, that means remote server provisioning via <strong>HPE iLO</strong> (installing  OS images , firmware updates, IP configuration). On the Azure side, it covers subscription setup, DNS and Organizational Unit configuration, Group Policy inheritance blocking, and privileged role assignment through <strong>Microsoft Entra ID</strong>.
-            </p>
-            <p>
-              From there, I provision resource groups against the right resource providers, complete <strong>Azure Arc onboarding</strong>, and deploy the Azure Local cluster itself — including Key Vault, storage accounts, machine and cluster nodes, and the Arc Resource Bridge. Post-deployment, I handle cluster security (lockdown), alert rule and alert-processing-rule configuration, and ongoing solution and OEM Solution Builder Extension (SBE) updates, alongside continuous health and alert monitoring.
-            </p>
-            <p>
-              I also lead workload migrations using <strong>Carbonite</strong> — provisioning target VMs, replicating live workloads, and executing cutovers — and manage day-to-day VM operations across <strong>Windows Admin Center, Hyper-V Manager, PowerShell/CLI, and Windows Server</strong> directly.
-            </p>
-            <p>
-              Much of this lifecycle has since evolved into an automated pipeline covering the overall build process across its multiple stages, triggered through <strong>GitHub Actions</strong> via a <strong>self-hosted runner</strong>. I work within this pipeline day-to-day — committing configuration changes, monitoring execution, and troubleshooting issues to keep deployments running smoothly.
-            </p>
           </div>
           <div class="facts-card">
             <div class="fact"><span class="fact-label">Location</span><span class="fact-value">Chennai, India</span></div>
@@ -128,86 +113,7 @@
           <h2 class="sec-title">Skills</h2>
         </div>
         <div class="skills-grid reveal">
-          <div class="skill-card">
-            <h3>Cloud</h3>
-            <ul>
-              <li>Microsoft Azure</li>
-              <li>Azure Local (Stack HCI)</li>
-              <li>Azure Arc</li>
-              <li>Hybrid Cloud</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Operating Systems</h3>
-            <ul>
-              <li>Windows Server</li>
-              <li>Linux</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Virtualization</h3>
-            <ul>
-              <li>Hyper-V</li>
-              <li>VMware</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Hardware & Firmware</h3>
-            <ul>
-              <li>HPE iLO remote management</li>
-              <li>Firmware & IP configuration</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Identity & Governance</h3>
-            <ul>
-              <li>Microsoft Entra ID (privileged roles)</li>
-              <li>DNS & Organizational Unit setup</li>
-              <li>Resource group & provider setup</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Azure Local Deployment</h3>
-            <ul>
-              <li>Arc onboarding & Resource Bridge</li>
-              <li>Cluster deployment (nodes, Key Vault, storage)</li>
-              <li>Solution & OEM SBE updates</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Monitoring & Alerting</h3>
-            <ul>
-              <li>Alert rule & processing configuration</li>
-              <li>Health & alert monitoring</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Migration</h3>
-            <ul>
-              <li>Carbonite replication</li>
-              <li>Target VM provisioning</li>
-              <li>Cutover execution</li>
-              <li>VMware-to-Hyper-V migration</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>DevOps & Automation</h3>
-            <ul>
-              <li>Git & GitHub</li>
-              <li>GitHub Actions (self-hosted runners)</li>
-              <li>PowerShell / CLI</li>
-              <li>Windows Admin Center & Hyper-V Manager</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3>Programming</h3>
-            <ul>
-              <li>Java</li>
-              <li>C++</li>
-              <li>SQL</li>
-              <li>HTML / CSS</li>
-            </ul>
-          </div>
+          <!-- Skills will be populated by JavaScript -->
         </div>
       </div>
     </section>
@@ -219,90 +125,7 @@
           <h2 class="sec-title">Projects</h2>
         </div>
         <div class="projects-grid reveal">
-          <!-- Project 1: GitOps Mini Lab -->
-          <div class="project-card">
-            <div class="project-head">
-              <div class="project-title">GitOps Mini Lab <span class="status-badge status-private">Private Repo</span></div>
-            </div>
-            <p class="project-desc">A self-hosted CI/CD pipeline built from scratch on an Ubuntu VM — covering runner registration, secure remote access, and push-triggered deployments, as hands-on practice toward containerized, monitored infrastructure.</p>
-            <!-- Optional screenshot: uncomment and set src once you have one -->
-            <!-- <img class="project-shot" src="screenshots/gitops-lab.png" alt="GitOps Mini Lab terminal showing pipeline run"> -->
-            <div class="tag-row">
-              <span class="tag">Shell</span>
-              <span class="tag">GitHub Actions</span>
-              <span class="tag">Tailscale</span>
-              <span class="tag">Ubuntu</span>
-            </div>
-            <div class="phase-list">
-              <div class="phase done">
-                <div class="phase-num">01</div>
-                <div class="phase-text">Ubuntu VM provisioned, self-hosted GitHub Actions runner registered</div>
-              </div>
-              <div class="phase done">
-                <div class="phase-num">02</div>
-                <div class="phase-text">Tailscale configured for permanent private remote access</div>
-              </div>
-              <div class="phase pending">
-                <div class="phase-num">03</div>
-                <div class="phase-text">Docker containerization → Prometheus/Grafana monitoring — in progress</div>
-              </div>
-            </div>
-            <div class="project-links"><span class="disabled">Repo is private — details on request</span></div>
-          </div>
-
-          <!-- Project 2: Nandha AI Assistant -->
-          <div class="project-card">
-            <div class="project-head">
-              <div class="project-title">Nandha AI Assistant <span class="status-badge status-live">Live</span></div>
-            </div>
-            <p class="project-desc">The chat assistant running on this portfolio right now. A Cloudflare Worker backend that securely holds an AI API key, adds context about my background, and answers visitor questions in real time — built specifically because GitHub Pages can't run backend code on its own.</p>
-            <!-- Optional screenshot: uncomment and set src once you have one -->
-            <!-- <img class="project-shot" src="screenshots/ai-assistant.png" alt="Nandha AI Assistant chat widget in action"> -->
-            <div class="tag-row">
-              <span class="tag">JavaScript</span>
-              <span class="tag">Cloudflare Workers</span>
-              <span class="tag">Groq API</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Nandhabuilds/Nandha-ai-assistant" target="_blank" rel="noopener">View on GitHub →</a>
-              <a href="#" onclick="document.getElementById('chat-toggle').click(); return false;">Try it now →</a>
-            </div>
-          </div>
-
-          <!-- Project 3: Azure Infra Watchdog -->
-          <div class="project-card">
-            <div class="project-head">
-              <div class="project-title">Azure Infra Watchdog <span class="status-badge status-early">Early Stage</span></div>
-            </div>
-            <p class="project-desc">A Python-based monitoring script for checking Azure VM status. Currently a skeleton — the core VM check script exists, with plans to expand into a full monitoring tool with alerting, paired with a free-tier AI API for readable status summaries.</p>
-            <!-- Optional screenshot: uncomment and set src once you have one -->
-            <!-- <img class="project-shot" src="screenshots/azure-watchdog.png" alt="Azure Infra Watchdog script output"> -->
-            <div class="tag-row">
-              <span class="tag">Python</span>
-              <span class="tag">Azure</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Nandhabuilds/azure-infra-watchdog" target="_blank" rel="noopener">View on GitHub →</a>
-            </div>
-          </div>
-
-          <!-- Project 4: Portfolio Website -->
-          <div class="project-card">
-            <div class="project-head">
-              <div class="project-title">This Portfolio <span class="status-badge status-live">Live</span></div>
-            </div>
-            <p class="project-desc">A fully responsive personal site built with plain HTML, CSS, and JavaScript — no frameworks — deployed via GitHub Pages with an automated GitHub Actions deploy pipeline triggered on every push. Includes the live AI assistant above.</p>
-            <!-- Optional screenshot: uncomment and set src once you have one -->
-            <!-- <img class="project-shot" src="screenshots/portfolio-home.png" alt="Portfolio homepage screenshot"> -->
-            <div class="tag-row">
-              <span class="tag">HTML/CSS/JS</span>
-              <span class="tag">GitHub Pages</span>
-              <span class="tag">GitHub Actions</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Nandhabuilds/Nandhabuilds.github.io" target="_blank" rel="noopener">View on GitHub →</a>
-            </div>
-          </div>
+          <!-- Projects will be populated by JavaScript -->
         </div>
       </div>
     </section>
@@ -333,13 +156,7 @@
           <h2 class="sec-title">Interests</h2>
         </div>
         <div class="interest-row reveal">
-          <span class="interest-chip"><span class="dot"></span>Cloud Computing</span>
-          <span class="interest-chip"><span class="dot"></span>Artificial Intelligence</span>
-          <span class="interest-chip"><span class="dot"></span>Linux</span>
-          <span class="interest-chip"><span class="dot"></span>Gaming</span>
-          <span class="interest-chip"><span class="dot"></span>Anime</span>
-          <span class="interest-chip"><span class="dot"></span>Photography</span>
-          <span class="interest-chip"><span class="dot"></span>Reading</span>
+          <!-- Interests will be populated by JavaScript -->
         </div>
       </div>
     </section>
@@ -351,22 +168,7 @@
           <h2 class="sec-title">Contact</h2>
         </div>
         <div class="contact-grid reveal">
-          <a class="contact-item" href="mailto:nandhakumar1903sk@gmail.com">
-            <div class="clabel">Email</div>
-            <div class="cvalue">nandhakumar1903sk@gmail.com</div>
-          </a>
-          <a class="contact-item" href="tel:+918610604208">
-            <div class="clabel">Phone</div>
-            <div class="cvalue">+91 86106 04208</div>
-          </a>
-          <a class="contact-item" href="https://www.linkedin.com/in/nandhakumar-s-818aa6269" target="_blank" rel="noopener">
-            <div class="clabel">LinkedIn</div>
-            <div class="cvalue">nandhakumar-s-818aa6269</div>
-          </a>
-          <a class="contact-item" href="https://github.com/Nandhabuilds" target="_blank" rel="noopener">
-            <div class="clabel">GitHub</div>
-            <div class="cvalue">Nandhabuilds</div>
-          </a>
+          
         </div>
       </div>
     </section>
